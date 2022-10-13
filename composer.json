@@ -1,0 +1,34 @@
+{
+    "name": "brendantwhite/databasemask",
+    "description": "Mask data from Production to use safely elsewhere",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "role": "Developer",
+            "name": "Brendan T White",
+            "email": "brendan@thespia.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "BrendanTWhite\\DatabaseMask\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BrendanTWhite\\DatabaseMask\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "illuminate/support": "^9.35"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "optimize-autoloader": true
+    }
+}
