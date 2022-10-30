@@ -1,8 +1,9 @@
 {
-    "name": "brendantwhite/databasemask",
+    "name": "brendantwhite/databasemask", 
     "description": "Mask data from Production to use safely elsewhere",
     "type": "library",
     "license": "MIT",
+    "homepage": "https://github.com/brendantwhite/databasemask",
     "authors": [
         {
             "role": "Developer",
@@ -10,6 +11,13 @@
             "email": "brendan@thespia.com"
         }
     ],
+    "keywords": [
+        "laravel",
+        "database",
+        "masking",
+        "obfuscation",
+        "privacy"
+      ],    
     "autoload": {
         "psr-4": {
             "BrendanTWhite\\DatabaseMask\\": "src/"
@@ -20,9 +28,19 @@
             "BrendanTWhite\\DatabaseMask\\Tests\\": "tests/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [      
+                "BrendanTWhite\\DatabaseMask\\DatabaseMaskServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
     "require": {
         "php": "^8.0",
-        "illuminate/support": "^9.35"
+        "illuminate/support":  "^8.67|^9.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -30,5 +48,8 @@
         "sort-packages": true,
         "preferred-install": "dist",
         "optimize-autoloader": true
+    },
+        "require-dev": {
+        "laravel/pint": "^1.2"
     }
 }
