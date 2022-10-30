@@ -1,6 +1,6 @@
 <?php
 
-namespace BrendanTWhite\DatabaseMask;
+namespace BrendanTWhite\DatabaseMask\Actions;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;

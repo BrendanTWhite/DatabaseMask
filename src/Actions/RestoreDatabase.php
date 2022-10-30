@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions\DatabaseMask;
+namespace BrendanTWhite\DatabaseMask\Actions;
 
 use Exception;
 use Illuminate\Console\Command;

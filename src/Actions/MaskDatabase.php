@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Actions\DatabaseMask;
+namespace BrendanTWhite\DatabaseMask\Actions;
 
+use BrendanTWhite\DatabaseMask\Actions\MaskModel;
 use Illuminate\Console\Command;
 use Illuminate\Container\Container;
 use Illuminate\Database\Eloquent\Model;

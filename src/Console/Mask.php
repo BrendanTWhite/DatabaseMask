@@ -2,7 +2,7 @@
 
 namespace BrendanTWhite\DatabaseMask\Console;
 
-use BrendanTWhite\DatabaseMask\MaskDatabase;
+use BrendanTWhite\DatabaseMask\Actions\MaskDatabase;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\App;

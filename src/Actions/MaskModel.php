@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions\DatabaseMask;
+namespace BrendanTWhite\DatabaseMask\Actions;
 
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Model;

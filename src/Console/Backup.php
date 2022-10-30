@@ -4,6 +4,7 @@ namespace BrendanTWhite\DatabaseMask\Console;
 
 use BrendanTWhite\DatabaseMask\Actions\BackupDatabase;
 use Illuminate\Console\Command;
+use Spatie\DbSnapshots\Helpers\Format;
 
 class Backup extends Command
 {

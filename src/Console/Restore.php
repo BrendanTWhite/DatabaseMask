@@ -2,7 +2,7 @@
 
 namespace BrendanTWhite\DatabaseMask\Console;
 
-use BrendanTWhite\DatabaseMask\RestoreDatabase;
+use BrendanTWhite\DatabaseMask\Actions\RestoreDatabase;
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\App;
