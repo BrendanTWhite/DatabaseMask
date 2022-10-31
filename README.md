@@ -9,6 +9,10 @@ Mask data from Production using Faker to use safely elsewhere.
 
 TODO: write use case
 
+## Installation
+
+`composer require brendantwhite/databasemask`
+
 ## Configuration
 
 First, ensure you have a 
@@ -19,6 +23,7 @@ model should be masked.
 
 ```php
     <?php
+
     // in app/Models/User.php
 
     /**
@@ -27,15 +32,18 @@ model should be masked.
      * @var array
      */
     protected $masked = [
-        'name','email','password',
+        'name',
+        'email',
+        'password',
     ];
 ```
 
 If you have any models that you don't need to be masked at all,
-add the `$masked` property anyway, but set it to the empty set.
+add the `$masked` property anyway, but make it an empty array.
 
 ```php
     <?php
+
     // in app/Models/SomeOtherModel.php
 
     /**
@@ -48,18 +56,16 @@ add the `$masked` property anyway, but set it to the empty set.
 
 ## Usage
 
-To mask your data, use the `php artisan dbm:mask` command.
-
-This will loop through all your Eloquent models, looking for 
+To mask your data, use the `php artisan dbm:mask` command. This will loop through all your Eloquent models, looking for 
 the `$masked` property.
 
-If the `$masked` property is set to the empty set, that model 
+- If the `$masked` property is set to the empty set, that model 
 will be skipped.
 
-If the `$masked` property is missing on a model, that model will
-be flagged as a warning.
+- If the `$masked` property is missing on a model, that model will
+be flagged with a warning.
 
-If the `$masked` property contains some field names, but no Factory has been created for that model, an error is returned.
+- If the `$masked` property contains some field names, but no Factory has been created for that model, an error is returned.
 
 But if the `$masked` property contains field names, and a Factory has been created, then the fields in the `$masked` property will be replaced with Faker values, while all other fields will be left untouched.
 
