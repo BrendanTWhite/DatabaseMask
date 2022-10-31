@@ -1,6 +1,6 @@
 {
     "name": "brendantwhite/databasemask", 
-    "description": "Mask data from Production to use safely elsewhere",
+    "description": "Mask data from Production using Faker to use safely elsewhere",
     "type": "library",
     "license": "MIT",
     "homepage": "https://github.com/brendantwhite/databasemask",
