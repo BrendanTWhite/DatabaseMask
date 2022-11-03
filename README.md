@@ -7,7 +7,11 @@ Mask data from Production using Faker to use safely elsewhere.
 
 ## Use Case
 
-TODO: write use case
+Ever wanted to use a copy of your Production database in your test environments? 
+But you can't, because it's a security risk?
+
+Now, you can get a copy of the Production database and mask just the values that need masking 
+- names, phone numbers, email addresses etc - while keeping your data otherwise intact. 
 
 ## Installation
 
@@ -16,7 +20,8 @@ TODO: write use case
 ## Configuration
 
 First, ensure you have a 
-[Model Factory](https://laravel.com/docs/9.x/eloquent-factories) defined for each Eloquent model class that you want to mask.
+[Model Factory](https://laravel.com/docs/eloquent-factories) defined 
+for each Eloquent model class that you want to mask.
 
 Then, add a `$masked` property to your Eloquent model classes, specifying which attributes on your
 model should be masked.
@@ -59,23 +64,34 @@ add the `$masked` property anyway, but make it an empty array.
 To mask your data, use the `php artisan dbm:mask` command. This will loop through all your Eloquent models, looking for 
 the `$masked` property.
 
-- If the `$masked` property is set to the empty set, that model 
-will be skipped.
+- If the `$masked` property is null or the empty set, that model will be skipped.
 
-- If the `$masked` property is missing on a model, that model will
-be flagged with a warning.
+- If the `$masked` property is missing, that model will be flagged with a warning.
 
-- If the `$masked` property contains some field names, but no Factory has been created for that model, an error is returned.
+- If the `$masked` property is not empty, but no Factory has been created for that model, an error is returned.
 
-But if the `$masked` property contains field names, and a Factory has been created, then the fields in the `$masked` property will be replaced with Faker values, while all other fields will be left untouched.
+But if the `$masked` property contains field names, and a Factory has been created, then 
+the fields in the `$masked` property will be replaced with Faker values, while all other fields will be left untouched. 
 
-## Example
+## Backup and Restore
 
-TODO: example goes here
+This package also contains light wrappers around Spatie's excellent 
+[laravel-db-snapshots](https://github.com/spatie/laravel-db-snapshots) package, to make backups and restores even easier.
+
+To use these commands you will first need to install `laravel-db-snapshots` 
+as per their [installation instructions](https://github.com/spatie/laravel-db-snapshots#installation).
+
+Then, `php artisan dbm:backup` will create a backup of your database on your `snapshots` disk, 
+and `php artisan dbm:restore`  will restore a backup.
+
+Generally, you'll want to backup from your Production enviornment, and restore to some other environment, 
+and then mask that data in the other environment.
+
+You do not need to install `laravel-db-snapshots` if you only want to use the `dbm:mask` command. 
 
 ## Disclaimer
 
-I cannot, and do not, guarantee that using DatabaseMask will make your data 100% de-identified, even when configured correctly.
+I cannot, and do not, guarantee that using DatabaseMask will make your data 100% de-identified.
 
 I can and will make a good-faith effort to ensure that, when configured correctly, DatabaseMask will remove personally 
 idendifiable information from your data. 
