@@ -24,6 +24,12 @@ class BackupDatabase
      */
     public function __invoke()
     {
+
+        // Check if SnapshotFactory has been installed
+        if (! class_exists('Spatie\DbSnapshots\Snapshot')) {
+            throw new \Exception("The dbm:backup command requires spatie/laravel-db-snapshots to be installed.");
+        }
+
         $connectionName = config('db-snapshots.default_connection')
             ?? config('database.default');
 

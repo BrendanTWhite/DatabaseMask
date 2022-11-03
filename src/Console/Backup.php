@@ -39,9 +39,15 @@ class Backup extends Command
      */
     public function handle(BackupDatabase $backupDatabase)
     {
-        $this->line('Starting backup...');
-        $backup = $backupDatabase();
-        $this->line('... backup finished.');
+        try {
+            $this->line('Starting backup...');
+            $backup = $backupDatabase();
+            $this->line('... backup finished.');
+        } catch (\Exception $exception) {
+            $this->warn($exception->getMessage());
+
+            return Command::INVALID;
+        }
 
         $size = Format::humanReadableSize($backup->size());
 

@@ -45,10 +45,16 @@ class Restore extends Command
 
         $filename = $this->argument('filename');
         if (! $filename) {
-            $this->line('Retreiving list of backups...');
-            $list_of_backups = app(SnapshotRepository::class)->getAll();
-            $this->line('... list retrived.');
-
+            try {
+                $this->line('Retreiving list of backups...');
+                $list_of_backups = app(SnapshotRepository::class)->getAll();
+                $this->line('... list retrived.');
+            } catch (Exception $exception) {
+                $this->warn("The dbm:restore command requires spatie/laravel-db-snapshots to be installed");
+    
+                return Command::INVALID;
+            }
+    
             if ($list_of_backups->isEmpty()) {
                 $this->warn('No backups found.');
                 $this->warn('Run `php artisan dbm:backup` from your production environment to create a backup.');

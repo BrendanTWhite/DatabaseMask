@@ -42,7 +42,10 @@
         "php": "^8.0",
         "illuminate/support":  "^8.67|^9.0"
     },
-    "minimum-stability": "dev",
+    "suggest": {
+        "spatie/laravel-db-snapshots": "Required for the dbm:backup and dbm:restore commands"
+      },
+        "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
         "sort-packages": true,

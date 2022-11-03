@@ -20,6 +20,12 @@ class RestoreDatabase
 
     public function __invoke($filename)
     {
+        
+        // Check if SnapshotFactory has been installed
+        if (! class_exists('Spatie\DbSnapshots\Snapshot')) {
+            throw new Exception("The dbm:restore command requires spatie/laravel-db-snapshots to be installed.");
+        }
+
         // We will NEVER restore a backup to a Production environment
 
         $environment = App::environment();
