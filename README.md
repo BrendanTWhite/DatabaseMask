@@ -91,6 +91,10 @@ and then mask that data in the other environment.
 
 You do not need to install `laravel-db-snapshots` if you only want to use the `dbm:mask` command. 
 
+## Testing DatabaseMask
+
+TODO: write some tests.
+
 ## Disclaimer
 
 I cannot, and do not, guarantee that using DatabaseMask will make your data 100% de-identified.
