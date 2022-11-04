@@ -7,7 +7,7 @@ Mask data from Production using Faker to use safely elsewhere.
 
 ## Use Case
 
-Ever wanted to use a copy of your Production database in your test environments? 
+Ever wanted to use a copy of your Laravel project's Production database in your test environments? 
 But you can't, because it's a security risk?
 
 Now, you can get a copy of the Production database and mask just the values that need 
@@ -103,7 +103,7 @@ I can and will make a good-faith effort to ensure that, when configured correctl
 idendifiable information from your data. 
 
 However I cannot guarantee that this software is 100% bug-free, and I certainly can't guarantee that you have configured it
-correctly. So use this software at your own risk, or not use it at all.
+correctly. So use this software at your own risk, or don't use it at all.
 
 ## License
 
