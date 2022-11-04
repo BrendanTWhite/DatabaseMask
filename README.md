@@ -10,10 +10,12 @@ Mask data from Production using Faker to use safely elsewhere.
 Ever wanted to use a copy of your Production database in your test environments? 
 But you can't, because it's a security risk?
 
-Now, you can get a copy of the Production database and mask just the values that need masking 
-- names, phone numbers, email addresses etc - while keeping your data otherwise intact. 
+Now, you can get a copy of the Production database and mask just the values that need 
+masking - names, phone numbers, email addresses etc - while keeping your data otherwise intact. 
 
 ## Installation
+
+From the command line run:
 
 `composer require brendantwhite/databasemask`
 
@@ -61,7 +63,7 @@ add the `$masked` property anyway, but make it an empty array.
 
 ## Usage
 
-To mask your data, use the `php artisan dbm:mask` command. This will loop through all your Eloquent models, looking for 
+To mask your data, run the `php artisan dbm:mask` command. This will loop through all your Eloquent models, looking for 
 the `$masked` property.
 
 - If the `$masked` property is null or the empty set, that model will be skipped.
@@ -71,7 +73,7 @@ the `$masked` property.
 - If the `$masked` property is not empty, but no Factory has been created for that model, an error is returned.
 
 But if the `$masked` property contains field names, and a Factory has been created, then 
-the fields in the `$masked` property will be replaced with Faker values, while all other fields will be left untouched. 
+the fields in the `$masked` property will be replaced with Faker values. All other fields will be left untouched. 
 
 ## Backup and Restore
 
@@ -81,8 +83,8 @@ This package also contains light wrappers around Spatie's excellent
 To use these commands you will first need to install `laravel-db-snapshots` 
 as per their [installation instructions](https://github.com/spatie/laravel-db-snapshots#installation).
 
-Then, `php artisan dbm:backup` will create a backup of your database on your `snapshots` disk, 
-and `php artisan dbm:restore`  will restore a backup.
+Then, run `php artisan dbm:backup` to create a backup file of your database on your `snapshots` disk.
+Run `php artisan dbm:restore` to choose a backup file and restore it to your current enviroment.
 
 Generally, you'll want to backup from your Production enviornment, and restore to some other environment, 
 and then mask that data in the other environment.
@@ -97,7 +99,7 @@ I can and will make a good-faith effort to ensure that, when configured correctl
 idendifiable information from your data. 
 
 However I cannot guarantee that this software is 100% bug-free, and I certainly can't guarantee that you have configured it
-correctly. Therefore you must use this software at your own risk, or not use it at all.
+correctly. So use this software at your own risk, or not use it at all.
 
 ## License
 
