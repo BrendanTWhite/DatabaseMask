@@ -103,7 +103,7 @@ I can and will make a good-faith effort to ensure that, when configured correctl
 idendifiable information from your data. 
 
 However I cannot guarantee that this software is 100% bug-free, and I certainly can't guarantee that you have configured it
-correctly. So use this software at your own risk, or don't use it at all.
+correctly. So use this software at your own risk.
 
 ## License
 
